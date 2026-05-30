@@ -1,7 +1,13 @@
 -- config things --
 local cfg = getgenv().Config
+local helper = cfg.helper
 local premium = cfg.premium
 local verified = cfg.verified
+
+-- waits for friend to be in the game --
+repeat task.wait() until game:IsLoaded()
+local Players = game:GetService("Players")
+local friend = cfg.helper ~= "" and Players:WaitForChild(helper) or Players.LocalPlayer
 
 -- waits for game to load --
 repeat task.wait() until game:IsLoaded()
